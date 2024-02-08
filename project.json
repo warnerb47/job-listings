@@ -18,7 +18,7 @@
         "inlineStyleLanguage": "scss",
         "assets": ["./src/favicon.ico", "./src/assets"],
         "styles": ["./src/styles.scss"],
-        "scripts": []
+        "scripts": ["node buildDocs.js"]
       },
       "configurations": {
         "production": {
@@ -68,6 +68,10 @@
         "buildTarget": "job-listings:build",
         "staticFilePath": "dist/job-listings/browser"
       }
+    },
+    "deploy": {
+      "dependsOn": "build",
+      "command": "node buildDocs.js"
     }
   }
 }
