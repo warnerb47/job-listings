@@ -2,11 +2,12 @@ main {
     display: flex;
     height: 100%;
     flex-direction: column;
+    overflow-y: auto;
 
-    header {
+    job-listings-header {
         flex: 0.2;
     }
-    main {
+    job-listings-job-list {
         flex: 0.8;
     }
 }
