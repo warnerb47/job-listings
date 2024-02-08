@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    header {
+        flex: 0.2;
+    }
+    main {
+        flex: 0.8;
+    }
+}
