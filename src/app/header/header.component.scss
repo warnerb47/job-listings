@@ -4,3 +4,9 @@ header {
     background-color: var(--primary);
     background-image: url('src/assets/images/bg-header-desktop.svg');
 }
+
+@media (max-width: 375px) {
+    header {
+        background-image: url('src/assets/images/bg-header-mobile.svg');
+    }
+}
