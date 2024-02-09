@@ -3,7 +3,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    // padding-bottom: 10rem;
 
     .content {
         width: 300px;
@@ -13,5 +12,14 @@ main {
         justify-content: center;
         align-items: center;
         margin-top: -2rem;
+        
+        .jobs {
+            display: flex;
+            flex-direction: column;
+            &>*+* {
+                margin-top: 1.25rem;
+            }
+
+        }
     }
 }

@@ -1,8 +1,132 @@
 .job {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 0.30rem;
     width: 70rem;
-    background-color: rgb(154, 232, 232);
+    background-color: white;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    cursor: pointer;
+    border-left: 0.25rem solid white;
+
+    &:hover {
+        border-left-color: var(--primary);
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+
+        &>*+* {
+            margin-left: 1rem;
+        }
+
+        .image {
+            img{
+                width: 5rem;
+                height: 5rem;
+                border-radius: 100%;
+            }
+        }
+
+        .detail {
+            display: flex;
+            flex-direction: column;
+            &>*+* {
+                margin-top: 1rem;
+            }
+
+            .top {
+                display: flex;
+                align-items: center;
+
+                &>*+* {
+                    margin-left: 0.5rem;
+                }
+
+                .company {
+                    color: var(--primary);
+                    margin-right: 0.5rem;
+                    font-weight: 700;
+                }
+                .label {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 500;
+                    padding: 0.5rem;
+                    font-size: 0.8rem;
+                    background-color: var(--primary);
+                    border-radius: 2rem;
+                }
+
+                .featured {
+                    background-color: var(--darker);
+                }
+
+            }
+
+            .middle {
+                font-weight: 700;
+                color: var(--darker);
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--primary);
+                }
+                .position {
+                    font-size: 1.2rem;
+                }
+            }
+
+            .bottom {
+                display: flex;
+                align-items: center;
+                
+                &>*+* {
+                    margin-left: 0.5rem;
+                }
+
+                .text {
+                    color: var(--dark);
+                }
+                .divide {
+                    background-color: var(--dark);
+                    width: 0.25rem;
+                    height: 0.25rem;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+
+    .tags {
+        display: flex;
+        align-items: center;
+
+        &>*+* {
+            margin-left: 1rem;
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            background-color: var(--filter-bg);
+            border-radius: 0.25rem;
+            font-weight: 500;
+            padding: 0.5rem;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--filter-bg);
+                background-color: var(--primary) ;
+
+            }
+        }
+    }
+
 }
