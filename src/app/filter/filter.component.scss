@@ -59,18 +59,19 @@
 }
 
 
-@media (max-width: 375px) {
+@media (max-width: 640px) {
     .filter {
         padding: 1rem;
-    }
-    .tags {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.20rem;
-
-        &>*+* {
-            margin: 0.2rem;
+        margin-bottom: 50px;
+        
+        .tags {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+    
+            &>*+* {
+                margin: 0.2rem;
+            }
         }
     }
 }

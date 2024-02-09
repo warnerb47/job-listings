@@ -12,14 +12,32 @@ main {
         justify-content: center;
         align-items: center;
         margin-top: -2rem;
-        
+
         .jobs {
             display: flex;
             flex-direction: column;
+
             &>*+* {
                 margin-top: 1.25rem;
             }
 
+        }
+    }
+}
+
+
+@media (max-width: 640px) {
+    main {
+        .content {
+            .jobs {
+                display: flex;
+                flex-direction: column;
+                &>*+* {
+                    margin-top: 50px;
+                }
+        
+        
+            }
         }
     }
 }
