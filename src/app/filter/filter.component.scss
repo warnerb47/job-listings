@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 1rem 2rem;
     border-radius: 0.30rem;
-    width: 70rem;
+    width: 70vw;
     background-color: white;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     margin-bottom: 2rem;
@@ -54,6 +54,23 @@
         &:hover {
             color: var(--primary);
             text-decoration: underline;
+        }
+    }
+}
+
+
+@media (max-width: 375px) {
+    .filter {
+        padding: 1rem;
+    }
+    .tags {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.20rem;
+
+        &>*+* {
+            margin: 0.2rem;
         }
     }
 }
