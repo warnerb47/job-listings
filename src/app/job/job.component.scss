@@ -142,7 +142,7 @@
         position: relative;
 
         &>*+* {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .info {
@@ -177,7 +177,7 @@
                 }
             }
     
-        }    
+        }
         .tags {
             display: flex;
             align-items: start;
@@ -190,4 +190,32 @@
         }
     }
 
+}
+
+@media (max-width: 1024px) {
+    .job {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &>*+* {
+            margin-top: 1rem;
+        }
+        
+        .info {
+            width: 100%;
+            display: flex;
+            align-items: start;
+            justify-content: start;
+        }
+
+        
+        .tags {
+            width: 100%;
+            display: flex;
+            align-items: start;
+            flex-wrap: wrap;
+        }
+    }
 }
