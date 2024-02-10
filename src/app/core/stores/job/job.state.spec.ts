@@ -31,5 +31,6 @@ describe('JobState', () => {
     it('should retrieve jobs', () => {
         jobGateway.withJobs([new stubJobBuilder().build()])
         store.dispatch(new RetrieveJobs());
+        expect(store.snapshot().job.jobs).toEqual([new stubJobBuilder().build()]);
     });
 });
