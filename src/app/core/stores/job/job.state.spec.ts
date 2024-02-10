@@ -4,7 +4,7 @@ import { JobState } from "./job.state";
 import { InMemoryJobGateway } from "../../adapters/in-memory-job.gateway";
 import { JobGateway } from "../../ports/job.gateway";
 import { stubJobBuilder } from "../../models/builders/job.builder";
-import { RetrieveJobs } from "./job.action";
+import { FetchJobs } from "./job.action";
 
 describe('JobState', () => {
     let store: Store
@@ -28,9 +28,9 @@ describe('JobState', () => {
     });
 
 
-    it('should retrieve jobs', () => {
+    it('should fetch jobs', () => {
         jobGateway.withJobs([new stubJobBuilder().build()])
-        store.dispatch(new RetrieveJobs());
+        store.dispatch(new FetchJobs());
         expect(store.snapshot().job.jobs).toEqual([new stubJobBuilder().build()]);
     });
 });
