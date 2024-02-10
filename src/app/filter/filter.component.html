@@ -4,25 +4,25 @@
             @if (queries.level) {
                 <div class="tag">
                     <div class="title">{{queries.level}}</div>
-                    <div class="close">X</div>
+                    <div class="close" (click)="popFilter({level: queries.level})">X</div>
                 </div>
             }
             @if (queries.role) {
                 <div class="tag">
                     <div class="title">{{queries.role}}</div>
-                    <div class="close">X</div>
+                    <div class="close" (click)="popFilter({role: queries.role})">X</div>
                 </div>
             }
             @for(query of queries.tools; track query) {
                 <div class="tag">
                     <div class="title">{{query}}</div>
-                    <div class="close">X</div>
+                    <div class="close" (click)="popFilter({tools: [query]})">X</div>
                 </div>
             }
             @for(query of queries.languages; track query) {
                 <div class="tag">
                     <div class="title">{{query}}</div>
-                    <div class="close">X</div>
+                    <div class="close" (click)="popFilter({languages: [query]})">X</div>
                 </div>
             }
         }

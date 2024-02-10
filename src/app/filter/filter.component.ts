@@ -18,8 +18,13 @@ export class FilterComponent {
     tools: [],
   });
   @Output() clear = new EventEmitter<void>();
+  @Output() pop = new EventEmitter<Partial<JobQuery>>();
 
   clearFilter(): void {
     this.clear.emit();
+  }
+
+  popFilter(query: Partial<JobQuery>): void {
+    this.pop.emit(query);
   }
 }

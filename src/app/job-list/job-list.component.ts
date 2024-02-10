@@ -1,11 +1,9 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilterComponent } from '../filter/filter.component';
 import { JobComponent } from '../job/job.component';
 import { JobGateway } from '../core/ports/job.gateway';
-import { toObservable, toSignal } from "@angular/core/rxjs-interop";
-import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
-import { Job } from '../core/models/job.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { JobQuery } from '../core/models/query.model';
 
 @Component({
@@ -47,6 +45,16 @@ export class JobListComponent {
       role: '',
       tools: [],
     });
+    this.jobs$ = this._jobGateway.filter(this.queries.value);
+  }
+
+  popFilter(partQuery: Partial<JobQuery>): void {
+    const payload = {...this.queries.value};
+    payload.level = payload.level === partQuery?.level ? '' : payload.level;
+    payload.role = payload.role === partQuery?.role ? '' : payload.role;
+    payload.tools = payload.tools.filter(t => !partQuery?.tools?.includes(t));
+    payload.languages = payload.languages.filter(l => !partQuery?.languages?.includes(l));
+    this.queries.next({...this.queries.value, ...payload});
     this.jobs$ = this._jobGateway.filter(this.queries.value);
   }
 }
