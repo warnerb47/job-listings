@@ -3,6 +3,8 @@ import { NgxsModule, Store } from "@ngxs/store";
 import { JobState } from "./job.state";
 import { InMemoryJobGateway } from "../../adapters/in-memory-job.gateway";
 import { JobGateway } from "../../ports/job.gateway";
+import { stubJobBuilder } from "../../models/builders/job.builder";
+import { RetrieveJobs } from "./job.action";
 
 describe('JobState', () => {
     let store: Store
@@ -27,6 +29,7 @@ describe('JobState', () => {
 
 
     it('should retrieve jobs', () => {
-        jobGateway.withJobs([])
+        jobGateway.withJobs([new stubJobBuilder().build()])
+        store.dispatch(new RetrieveJobs());
     });
 });
