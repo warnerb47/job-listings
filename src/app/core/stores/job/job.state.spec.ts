@@ -3,7 +3,7 @@ import { NgxsModule, Store } from "@ngxs/store";
 import { JobState, JobStateModelDefaults } from "./job.state";
 import { InMemoryJobGateway } from "../../adapters/in-memory-job.gateway";
 import { JobGateway } from "../../ports/job.gateway";
-import { stubJobBuilder } from "../../models/builders/job.builder";
+import { StubJobBuilder } from "../../models/builders/job.builder";
 import { FetchJobs } from "./job.action";
 
 describe('JobState', () => {
@@ -27,13 +27,13 @@ describe('JobState', () => {
 
 
     it('should fetch jobs', () => {
-        jobGateway.withJobs([new stubJobBuilder().build()])
+        jobGateway.withJobs([new StubJobBuilder().build()])
         store.dispatch(new FetchJobs(false));
-        expect(store.snapshot().job.jobs).toEqual([new stubJobBuilder().build()]);
+        expect(store.snapshot().job.jobs).toEqual([new StubJobBuilder().build()]);
     });
 
     it('should handle fetch jobs error', () => {
-        jobGateway.withJobs([new stubJobBuilder().build()])
+        jobGateway.withJobs([new StubJobBuilder().build()])
         store.dispatch(new FetchJobs(true));
         expect(store.snapshot().job.jobs).toEqual([]);
         expect(store.snapshot().job.error).toEqual(new Error('triggered error'));

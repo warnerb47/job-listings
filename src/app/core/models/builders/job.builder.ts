@@ -87,7 +87,7 @@ export class JobBuilder {
     }
 }
 
-export class stubJobBuilder extends JobBuilder {
+export class StubJobBuilder extends JobBuilder {
     protected override id = 1; 
     protected override company = 'company'; 
     protected override logo = 'logo'; 

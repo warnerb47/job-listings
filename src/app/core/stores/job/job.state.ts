@@ -4,15 +4,23 @@ import { Job } from "../../models/job.model";
 import { JobGateway } from "../../ports/job.gateway";
 import { Observable, catchError, map, of, tap } from "rxjs";
 import { FetchJobs, FetchJobsError, FetchJobsSuccess } from "./job.action";
+import { JobQuery } from "../../models/query.model";
 
 export interface JobStateModel {
     jobs: Job[];
     error: unknown;
+    query: JobQuery;
 }
 
 export const JobStateModelDefaults: JobStateModel = {
     jobs: [],
     error: null,
+    query: {
+        languages: [],
+        level: '',
+        role: '',
+        tools: [],
+    }
 };
 
 @State<JobStateModel>({
