@@ -16,6 +16,7 @@ import { JobQuery } from '../core/models/query.model';
 export class JobListComponent {
   private _jobGateway = inject(JobGateway);
   jobs$ = this._jobGateway.retrieveAll();
+  hideFilter= true;
   
   queries = new BehaviorSubject<JobQuery>({
     languages: [],
@@ -36,6 +37,7 @@ export class JobListComponent {
     payload.languages = [...payload.languages, ...query?.languages ?? []];
     this.queries.next({...this.queries.value, ...payload});
     this.jobs$ = this._jobGateway.filter(this.queries.value);
+    this.hideFilter = false;
   }
 
   clearFilter(): void {
@@ -46,6 +48,7 @@ export class JobListComponent {
       tools: [],
     });
     this.jobs$ = this._jobGateway.filter(this.queries.value);
+    this.hideFilter = true;
   }
 
   popFilter(partQuery: Partial<JobQuery>): void {
@@ -56,5 +59,13 @@ export class JobListComponent {
     payload.languages = payload.languages.filter(l => !partQuery?.languages?.includes(l));
     this.queries.next({...this.queries.value, ...payload});
     this.jobs$ = this._jobGateway.filter(this.queries.value);
+    if (JSON.stringify(this.queries.value) === JSON.stringify({
+      languages: [],
+      level: '',
+      role: '',
+      tools: [],
+    })) {
+      this.hideFilter = true; 
+    }
   }
 }

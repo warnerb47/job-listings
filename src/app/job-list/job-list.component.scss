@@ -12,7 +12,10 @@ main {
         justify-content: center;
         align-items: center;
         margin-top: -2rem;
-
+        
+        .hide{
+            opacity: 0;
+        }
         .jobs {
             display: flex;
             flex-direction: column;
