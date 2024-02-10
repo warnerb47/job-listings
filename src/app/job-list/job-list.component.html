@@ -2,10 +2,11 @@
     <div class="content">
         <job-listings-filter></job-listings-filter>
         <div class="jobs">
-            <job-listings-job></job-listings-job>
-            <job-listings-job></job-listings-job>
-            <job-listings-job></job-listings-job>
-            <job-listings-job></job-listings-job>
+            @for(job of jobs(); track job.id) {
+                <job-listings-job></job-listings-job>
+            }@empty {
+                <div>Liste vide</div>
+            }
         </div>
     </div>
 </main>
