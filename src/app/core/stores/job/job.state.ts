@@ -3,7 +3,7 @@ import { Action, State, StateContext } from "@ngxs/store";
 import { Job } from "../../models/job.model";
 import { JobGateway } from "../../ports/job.gateway";
 import { Observable, catchError, map, of, tap } from "rxjs";
-import { FetchJobs, FetchJobsError, FetchJobsSuccess } from "./job.action";
+import { FetchJobs, FetchJobsError, FetchJobsSuccess, FilterJobs } from "./job.action";
 import { JobQuery } from "../../models/query.model";
 
 export interface JobStateModel {
@@ -57,5 +57,18 @@ export class JobState {
     @Action(FetchJobsError)
     onFetchJobsError(ctx: StateContext<JobStateModel>, {error}: FetchJobsError): void {
         ctx.patchState({error});
+    }
+
+
+
+    @Action(FilterJobs)
+    onFilterJobs(ctx: StateContext<JobStateModel>, {query}: FilterJobs): Observable<Job[]> {
+        return this.jobGateway.filter(query).pipe(
+            tap(jobs => ctx.dispatch(new FetchJobsSuccess(jobs))),
+            catchError((error) => {
+                ctx.dispatch(new FetchJobsError(error));
+                return of([]);
+            }),
+        );
     }
 }
