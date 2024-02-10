@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { JobQuery } from '../core/models/query.model';
@@ -17,5 +17,9 @@ export class FilterComponent {
     role: '',
     tools: [],
   });
+  @Output() clear = new EventEmitter<void>();
 
+  clearFilter(): void {
+    this.clear.emit();
+  }
 }

@@ -36,8 +36,17 @@ export class JobListComponent {
     payload.role = query?.role ?? payload.role;
     payload.tools = [...payload.tools, ...query?.tools ?? []];
     payload.languages = [...payload.languages, ...query?.languages ?? []];
-    console.log(payload);
     this.queries.next({...this.queries.value, ...payload});
+    this.jobs$ = this._jobGateway.filter(this.queries.value);
+  }
+
+  clearFilter(): void {
+    this.queries.next({
+      languages: [],
+      level: '',
+      role: '',
+      tools: [],
+    });
     this.jobs$ = this._jobGateway.filter(this.queries.value);
   }
 }
