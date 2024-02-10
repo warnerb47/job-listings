@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { JobListComponent } from './job-list/job-list.component';
-import { HeaderComponent } from './header/header.component';
+import { JobListComponent } from './views/job-list/job-list.component';
+import { HeaderComponent } from './views/header/header.component';
 
 @Component({
   standalone: true,

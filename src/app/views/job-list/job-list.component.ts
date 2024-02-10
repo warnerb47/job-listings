@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilterComponent } from '../filter/filter.component';
-import { JobComponent } from '../job/job.component';
-import { JobGateway } from '../core/ports/job.gateway';
+import { FilterComponent } from './components/filter/filter.component';
+import { JobComponent } from './components/job/job.component';
+import { JobGateway } from '../../core/ports/job.gateway';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { JobQuery } from '../core/models/query.model';
+import { JobQuery } from '../../core/models/query.model';
 
 @Component({
   selector: 'job-listings-job-list',
