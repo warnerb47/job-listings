@@ -1,9 +1,9 @@
 <main>
     <div class="content">
-        <job-listings-filter></job-listings-filter>
+        <job-listings-filter [queries$]="queries$"></job-listings-filter>
         <div class="jobs">
-            @for(job of jobs(); track job.id) {
-                <job-listings-job></job-listings-job>
+            @for(job of (jobs$ | async); track job.id) {
+                <job-listings-job [job]="job" (query)="filter($event)"></job-listings-job>
             }@empty {
                 <div>Liste vide</div>
             }
