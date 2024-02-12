@@ -1,6 +1,6 @@
 <main>
     <div class="content">
-        <job-listings-filter [ngClass]="{'hide': hideFilter}" [queries$]="queries$" (clear)="clearFilter()" (pop)="popFilter($event)"></job-listings-filter>
+        <job-listings-filter [ngClass]="{'hide': (hideFilter$ | async)}" [queries$]="queries$" (clear)="clearFilter()" (pop)="popFilter($event)"></job-listings-filter>
         <div class="jobs">
             @for(job of (jobs$ | async); track job.id) {
                 <job-listings-job [job]="job" (query)="filter($event)"></job-listings-job>
