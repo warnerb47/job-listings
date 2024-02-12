@@ -3,10 +3,6 @@ import { JobQuery } from "../../models/query.model";
 
 export class FetchJobs {
     static readonly type = "[Job Page] fetch jobs";
-    public triggerError = false;
-    constructor(triggerError: boolean) {
-        this.triggerError = triggerError; 
-    }
 }
 
 export class FetchJobsSuccess {

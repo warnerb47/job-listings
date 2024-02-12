@@ -5,6 +5,7 @@ import { InMemoryJobGateway } from "../../adapters/in-memory-job.gateway";
 import { JobGateway } from "../../ports/job.gateway";
 import { StubJobBuilder } from "../../models/builders/job.builder";
 import { FetchJobs, FilterJobs } from "./job.action";
+import { AddQuery, ClearQuery, RemoveQuery } from "./query.action";
 
 describe('JobState', () => {
     let store: Store
@@ -28,15 +29,8 @@ describe('JobState', () => {
 
     it('should fetch jobs', () => {
         jobGateway.withJobs([new StubJobBuilder().build()])
-        store.dispatch(new FetchJobs(false));
+        store.dispatch(new FetchJobs());
         expect(store.snapshot().job.jobs).toEqual([new StubJobBuilder().build()]);
-    });
-
-    it('should handle fetch jobs error', () => {
-        jobGateway.withJobs([new StubJobBuilder().build()])
-        store.dispatch(new FetchJobs(true));
-        expect(store.snapshot().job.jobs).toEqual([]);
-        expect(store.snapshot().job.error).toEqual(new Error('triggered error'));
     });
 
     it('should filter jobs', () => {
@@ -46,5 +40,20 @@ describe('JobState', () => {
         ]);
         store.dispatch(new FilterJobs({level: 'Senior', languages: [], role: '', tools: []}));
         expect(store.snapshot().job.jobs).toEqual([new StubJobBuilder().withlevel('Senior').build()]);
+    });
+
+    it('should add query', () => {
+        store.dispatch(new AddQuery({level: 'Senior', languages: ['HTML']}));
+        expect(store.snapshot().job.query).toEqual({level: 'Senior', languages: ['HTML'], role: '', tools: []});
+    });
+
+    it('should remove query', () => {
+        store.dispatch(new AddQuery({level: 'Senior', languages: ['HTML']}));
+        store.dispatch(new RemoveQuery({languages: ['HTML']}));
+        expect(store.snapshot().job.query).toEqual({level: 'Senior', languages: [], role: '', tools: []});
+    });
+    it('should clear query', () => {
+        store.dispatch(new ClearQuery());
+        expect(store.snapshot().job.query).toEqual(JobStateModelDefaults.query);
     });
 });
