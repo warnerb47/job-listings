@@ -1,5 +1,4 @@
 import { Job } from "../../models/job.model";
-import { JobQuery } from "../../models/query.model";
 
 export class FetchJobs {
     static readonly type = "[Job Page] fetch jobs";
@@ -18,5 +17,4 @@ export class FetchJobsError {
 
 export class FilterJobs {
     static readonly type = "[Job Page] filter jobs";
-    constructor(public query: JobQuery) {}
 }

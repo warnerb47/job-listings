@@ -57,8 +57,8 @@ export class JobState {
 
 
     @Action(FilterJobs)
-    onFilterJobs(ctx: StateContext<JobStateModel>, {query}: FilterJobs): Observable<Job[]> {
-        return this.jobGateway.filter(query).pipe(
+    onFilterJobs(ctx: StateContext<JobStateModel>): Observable<Job[]> {
+        return this.jobGateway.filter(ctx.getState().query).pipe(
             tap(jobs => ctx.dispatch(new FetchJobsSuccess(jobs))),
             catchError((error) => {
                 ctx.dispatch(new FetchJobsError(error));

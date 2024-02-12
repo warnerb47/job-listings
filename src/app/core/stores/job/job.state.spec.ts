@@ -38,7 +38,8 @@ describe('JobState', () => {
             new StubJobBuilder().withlevel('Senior').build(),
             new StubJobBuilder().withlevel('Junior').build(),
         ]);
-        store.dispatch(new FilterJobs({level: 'Senior', languages: [], role: '', tools: []}));
+        store.dispatch(new AddQuery({level: 'Senior', languages: [], role: '', tools: []}));
+        store.dispatch(new FilterJobs());
         expect(store.snapshot().job.jobs).toEqual([new StubJobBuilder().withlevel('Senior').build()]);
     });
 
