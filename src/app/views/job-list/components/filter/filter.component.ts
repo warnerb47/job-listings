@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable, of } from 'rxjs';
-import { JobQuery } from '../core/models/query.model';
+import { JobQuery } from '../../../../core/models/query.model';
 
 @Component({
   selector: 'job-listings-filter',

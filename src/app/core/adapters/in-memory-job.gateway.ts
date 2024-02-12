@@ -8,6 +8,11 @@ export class InMemoryJobGateway extends JobGateway {
     
     jobs: Job[] = data || [];
 
+    withJobs(jobs: Job[]): InMemoryJobGateway {
+        this.jobs = jobs;
+        return this;
+      }
+
     override retrieveAll(): Observable<Job[]> {
         return of(this.jobs);
     }

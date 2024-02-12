@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Job } from '../core/models/job.model';
-import { JobQuery } from '../core/models/query.model';
+import { Job } from '../../../../core/models/job.model';
+import { JobQuery } from '../../../../core/models/query.model';
 
 @Component({
   selector: 'job-listings-job',
