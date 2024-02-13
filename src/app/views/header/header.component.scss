@@ -5,8 +5,9 @@ header {
     background-image: url('src/assets/images/bg-header-desktop.svg');
 }
 
-@media (max-width: 375px) {
+@media (max-width: 640px) {
     header {
         background-image: url('src/assets/images/bg-header-mobile.svg');
+        height: 17vh;
     }
 }
