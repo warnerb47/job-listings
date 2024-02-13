@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.2.0](https://github.com/warnerb47/job-listings/compare/v1.1.0...v1.2.0) (2024-02-13)
+
+
+### Features
+
+* add job builder ([472de77](https://github.com/warnerb47/job-listings/commit/472de77a5f6b02c08876023ebab1e8151f2c4c57))
+* add query actions ([2ac0f47](https://github.com/warnerb47/job-listings/commit/2ac0f4794090d86a11818bd15476195119e40a23))
+* add query actions ([9580b31](https://github.com/warnerb47/job-listings/commit/9580b31a8e3c30014a644bff951370d724e515b5))
+* create RetrieveJobs action ([153218e](https://github.com/warnerb47/job-listings/commit/153218ede29877f0cdfa317ac3fa33d6bc6853c2))
+* init job state ([5f13ae4](https://github.com/warnerb47/job-listings/commit/5f13ae4298951713f9c2cd7fa2e9edce71e11b80))
+* update filterJobs action ([acafacd](https://github.com/warnerb47/job-listings/commit/acafacdfe2d6652438596de342678ffc74de3d00))
+
+
+### Bug Fixes
+
+* fix job state configuration ([75ec5f8](https://github.com/warnerb47/job-listings/commit/75ec5f880a46a7793ada65bea3e672a55799dfce))
+
 ## [1.1.0](https://github.com/warnerb47/job-listings/compare/v1.0.0...v1.1.0) (2024-02-10)
 
 
