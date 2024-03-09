@@ -1,13 +1,15 @@
 header {
     width: 100%;
-    height: 20vh;
+    height: 18vh;
     background-color: var(--primary);
     background-image: url('src/assets/images/bg-header-desktop.svg');
+    background-size: cover;
 }
 
 @media (max-width: 640px) {
     header {
         background-image: url('src/assets/images/bg-header-mobile.svg');
-        height: 17vh;
+        height: 18vh;
+        background-size: cover;
     }
 }
