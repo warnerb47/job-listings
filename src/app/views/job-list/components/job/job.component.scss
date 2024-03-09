@@ -10,7 +10,7 @@
     cursor: pointer;
     border-left: 0.25rem solid white;
 
-    &:hover {
+    &.featured {
         border-left-color: var(--primary);
     }
 
