@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.1](https://github.com/warnerb47/job-listings/compare/v1.2.0...v1.2.1) (2024-03-09)
+
+
+### Bug Fixes
+
+* fix body background ([07df28d](https://github.com/warnerb47/job-listings/commit/07df28d8e1a18a3af0633e8f0543d1933b9c8741))
+* fix header background size ([07df28d](https://github.com/warnerb47/job-listings/commit/07df28d8e1a18a3af0633e8f0543d1933b9c8741))
+* fix job shadow ([07df28d](https://github.com/warnerb47/job-listings/commit/07df28d8e1a18a3af0633e8f0543d1933b9c8741))
+
 ## [1.2.0](https://github.com/warnerb47/job-listings/compare/v1.1.0...v1.2.0) (2024-02-13)
 
 
