@@ -1,4 +1,4 @@
-<main>
+<div class="job-list">
     <div class="content">
         <job-listings-filter [ngClass]="{'hide': (hideFilter$ | async)}" [queries$]="queries$" (clear)="clearFilter()" (pop)="popFilter($event)"></job-listings-filter>
         <div class="jobs">
@@ -9,4 +9,4 @@
             }
         </div>
     </div>
-</main>
+</div>
